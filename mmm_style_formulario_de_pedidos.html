@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MMM STYLE | Portal de Pedidos Exclusivos</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Fonts & Tailwind Configuration -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              gold: '#F59E0B',
+              goldHover: '#D97706',
+              goldLight: '#FDE68A',
+              darkBg: '#0F172A',
+              cardBg: 'rgba(30, 41, 59, 0.75)',
+            }
+          },
+          boxShadow: {
+            'glow': '0 0 25px -5px rgba(245, 158, 11, 0.3)',
+            'glow-lg': '0 0 35px -3px rgba(245, 158, 11, 0.45)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #090D16;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(245, 158, 11, 0.12) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(217, 119, 6, 0.08) 0px, transparent 50%);
+      background-attachment: fixed;
+    }
+    
+    .glass-card {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .glass-card-accent {
+      background: rgba(30, 41, 59, 0.6);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(245, 158, 11, 0.2);
+    }
+
+    /* Form Inputs styling */
+    .input-field {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #F8FAFC;
+      transition: all 0.25s ease;
+    }
+    .input-field:focus {
+      border-color: #F59E0B;
+      box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+      outline: none;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #090D16;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #F59E0B;
+    }
+  </style>
+</head>
+<body class="text-slate-100 font-sans min-h-screen flex flex-col justify-between selection:bg-amber-500 selection:text-black">
+
+  <!-- TOP HEADER / HERO -->
+  <header class="relative border-b border-slate-800/80 bg-slate-950/60 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      
+      <!-- Brand Logo -->
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-amber-500 to-amber-300 flex items-center justify-center text-slate-950 font-black text-xl shadow-glow">
+          MMM
+        </div>
+        <div>
+          <h1 class="text-2xl font-extrabold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-amber-200 to-amber-500">
+            MMM STYLE
+          </h1>
+          <p class="text-xs text-amber-400/80 font-medium tracking-widest uppercase">Portal de Pedidos & Catálogo Exclusivo</p>
+        </div>
+      </div>
+
+      <!-- External Catalog Banner CTA -->
+      <div class="flex items-center gap-3 w-full md:w-auto">
+        <a href="https://www.yupoo.store/" target="_blank" rel="noopener noreferrer" 
+           class="w-full md:w-auto inline-flex items-center justify-center gap-3 px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold transition-all duration-300 shadow-glow hover:shadow-glow-lg transform hover:-translate-y-0.5 active:translate-y-0 text-sm">
+          <i class="fa-solid fa-store text-base"></i>
+          <span>Explorar Catálogo Yupoo</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-75"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
+    
+    <!-- Hero Banner Text -->
+    <div class="mb-8 text-center md:text-left glass-card p-6 md:p-8 rounded-2xl relative overflow-hidden">
+      <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="max-w-3xl">
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20 mb-3">
+          <i class="fa-solid fa-bolt text-xs"></i> Envíos Rápidos & Atención Directa
+        </span>
+        <h2 class="text-2xl md:text-4xl font-extrabold text-white tracking-tight">
+          Realiza tu Pedido Personalizado
+        </h2>
+        <p class="mt-2 text-slate-400 text-sm md:text-base leading-relaxed">
+          Copia los enlaces o nombres de los modelos que te gusten de nuestro 
+          <a href="https://www.yupoo.store/" target="_blank" class="text-amber-400 underline hover:text-amber-300">Catálogo Yupoo</a>, 
+          rellena tus datos de envío y procesaremos tu orden inmediatamente.
+        </p>
+      </div>
+    </div>
+
+    <!-- MAIN FORM & SUMMARY GRID -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- ORDER FORM (COL 1-7/8) -->
+      <div class="lg:col-span-7 xl:col-span-8 space-y-6">
+        
+        <!-- Action Form -> Direct to email mateosmunozmanuel@gmail.com via FormSubmit -->
+        <form id="orderForm" action="https://formsubmit.co/mateosmunozmanuel@gmail.com" method="POST" class="space-y-6">
+          
+          <!-- FormSubmit Configuration Hidden Inputs -->
+          <input type="hidden" name="_subject" value="¡Nuevo Pedido Recibido en MMM STYLE!">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+
+          <!-- STEP 1: CUSTOMER DETAILS -->
+          <div class="glass-card p-6 rounded-2xl">
+            <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-800">
+              <div class="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center font-bold text-sm">
+                1
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-white">Datos de Envío</h3>
+                <p class="text-xs text-slate-400">¿A dónde te enviamos tu pedido?</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <!-- Nombre Completo -->
+              <div class="md:col-span-2">
+                <label for="fullName" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+                  Nombre y Apellidos *
+                </label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
+                    <i class="fa-solid fa-user"></i>
+                  </span>
+                  <input type="text" id="fullName" name="Cliente_Nombre" required 
+                         placeholder="Ej. Juan Pérez García" 
+                         class="input-field w-full pl-10 pr-4 py-3 rounded-xl text-sm">
+                </div>
+              </div>
+
+              <!-- WhatsApp / Telefono -->
+              <div>
+                <label for="phone" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+                  Teléfono / WhatsApp *
+                </label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
+                    <i class="fa-brands fa-whatsapp"></i>
+                  </span>
+                  <input type="tel" id="phone" name="Cliente_Telefono" required 
+                         placeholder="+34 600 000 000" 
+                         class="input-field w-full pl-10 pr-4 py-3 rounded-xl text-sm">
+                </div>
+              </div>
+
+              <!-- Email Confirmacion -->
+              <div>
+                <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+                  Correo Electrónico *
+                </label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
+                    <i class="fa-solid fa-envelope"></i>
+                  </span>
+                  <input type="email" id="email" name="Cliente_Email" required 
+                         placeholder="tu@email.com" 
+                         class="input-field w-full pl-10 pr-4 py-3 rounded-xl text-sm">
+                </div>
+              </div>
+
+              <!-- Dirección -->
+              <div class="md:col-span-2">
+                <label for="address" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+                  Dirección Calle, Número, Piso/Puerta *
+                </label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
+                    <i class="fa-solid fa-location-dot"></i>
+                  </span>
+                  <input type="text" id="address" name="Cliente_Direccion" required 
+                         placeholder="Calle Gran Vía 12, 3ºB" 
+                         class="input-field w-full pl-10 pr-4 py-3 rounded-xl text-sm">
+                </div>
+              </div>
+
+              <!-- Ciudad -->
+              <div>
+                <label for="city" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+                  Ciudad / Provincia *
+                </label>
+                <input type="text" id="city" name="Cliente_Ciudad" required 
+                       placeholder="Madrid" 
+                       class="input-field w-full px-4 py-3 rounded-xl text-sm">
+              </div>
+
+              <!-- Código Postal -->
+              <div>
+                <label for="postalCode" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+                  Código Postal *
+                </label>
+                <input type="text" id="postalCode" name="Cliente_CP" required 
+                       placeholder="28001" 
+                       class="input-field w-full px-4 py-3 rounded-xl text-sm">
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 2: PRODUCTS ITEMS BUILDER -->
+          <div class="glass-card p-6 rounded-2xl">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center font-bold text-sm">
+                  2
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold text-white">Prendas y Productos</h3>
+                  <p class="text-xs text-slate-400">Añade los artículos que deseas pedir desde Yupoo</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dynamic Product List Container -->
+            <div id="productsContainer" class="space-y-6">
+              <!-- Item 1 (Template Generated via JS on init or inline default) -->
+            </div>
+
+            <!-- Add Extra Item Button -->
+            <button type="button" id="btnAddProduct" 
+                    class="mt-6 w-full py-3.5 px-4 rounded-xl border border-dashed border-amber-500/40 text-amber-400 hover:bg-amber-500/10 hover:border-amber-500 transition-all duration-200 font-semibold text-sm flex items-center justify-center gap-2">
+              <i class="fa-solid fa-plus-circle"></i>
+              Añadir otro producto al pedido
+            </button>
+          </div>
+
+          <!-- STEP 3: SUBMIT ACTIONS -->
+          <div class="glass-card p-6 rounded-2xl space-y-4">
+            <h4 class="text-sm font-semibold text-slate-300">Selecciona la vía de envío del pedido:</h4>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <!-- Direct Email Submit Button -->
+              <button type="submit" id="btnSubmitEmail"
+                      class="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-extrabold text-base transition-all duration-300 shadow-glow flex items-center justify-center gap-3">
+                <i class="fa-solid fa-paper-plane"></i>
+                Enviar Pedido por Email
+              </button>
+
+              <!-- WhatsApp Direct Submit Button -->
+              <button type="button" id="btnSubmitWhatsApp"
+                      class="w-full py-4 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-base transition-all duration-300 shadow-lg flex items-center justify-center gap-3">
+                <i class="fa-brands fa-whatsapp text-xl"></i>
+                Enviar por WhatsApp
+              </button>
+            </div>
+
+            <p class="text-xs text-center text-slate-500 mt-2">
+              <i class="fa-solid fa-shield-halved mr-1"></i> Tus datos son tratados de forma privada y segura para procesar tu pedido en MMM STYLE.
+            </p>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- LIVE ORDER SUMMARY SIDEBAR (COL 8-12) -->
+      <div class="lg:col-span-5 xl:col-span-4 sticky top-24">
+        <div class="glass-card-accent p-6 rounded-2xl shadow-glow">
+          
+          <div class="flex items-center justify-between pb-4 border-b border-amber-500/20 mb-4">
+            <h3 class="text-lg font-bold text-white flex items-center gap-2">
+              <i class="fa-solid fa-receipt text-amber-400"></i> Resumen de Pedido
+            </h3>
+            <span id="summaryBadge" class="bg-amber-500/20 text-amber-400 text-xs px-2.5 py-1 rounded-full font-bold border border-amber-500/30">
+              0 Productos
+            </span>
+          </div>
+
+          <!-- Live Customer Info Preview -->
+          <div class="mb-4 pb-4 border-b border-slate-800 text-xs space-y-1">
+            <p class="text-slate-400 uppercase font-semibold text-[10px] tracking-wider mb-1">Cliente:</p>
+            <p class="text-slate-200 font-medium truncate" id="summaryCustomerName"><i class="fa-regular fa-user mr-1 text-slate-500"></i> No especificado</p>
+            <p class="text-slate-400 truncate" id="summaryCustomerCity"><i class="fa-solid fa-location-dot mr-1 text-slate-500"></i> No especificado</p>
+          </div>
+
+          <!-- Items Preview List -->
+          <div id="summaryItemsList" class="space-y-3 max-h-[320px] overflow-y-auto pr-1">
+            <p class="text-xs text-slate-500 italic text-center py-4">No hay productos agregados todavía.</p>
+          </div>
+
+          <!-- Catalog Quick Link inside summary -->
+          <div class="mt-6 pt-4 border-t border-slate-800 text-center">
+            <a href="https://www.yupoo.store/" target="_blank" rel="noopener noreferrer" 
+               class="text-xs text-amber-400 hover:text-amber-300 font-semibold inline-flex items-center gap-1.5 transition-colors">
+              <i class="fa-solid fa-magnifying-glass"></i> ¿Buscas más referencias? Abre Yupoo
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-900 bg-slate-950 py-6 mt-12">
+    <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500 space-y-2">
+      <p class="font-bold text-slate-400">MMM STYLE &copy; <span id="year"></span> - Catálogo & Pedidos Exclusivos</p>
+      <p class="text-[11px] text-slate-600">
+        Enlace Oficial de Catálogo: 
+        <a href="https://www.yupoo.store/" target="_blank" class="text-slate-400 hover:underline">www.yupoo.store</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    let productCount = 0;
+
+    // Helper: Create Template for Single Product Row
+    function createProductRow(index) {
+      const card = document.createElement('div');
+      card.className = 'product-row bg-slate-900/80 border border-slate-800 rounded-xl p-4 md:p-5 relative transition-all duration-200 hover:border-slate-700';
+      card.setAttribute('data-index', index);
+
+      card.innerHTML = `
+        <div class="flex items-center justify-between mb-3 pb-2 border-b border-slate-800">
+          <span class="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+            <i class="fa-solid fa-shirt"></i> Producto #${index}
+          </span>
+          ${index > 1 ? `
+            <button type="button" class="btn-remove-product text-xs text-rose-400 hover:text-rose-300 font-semibold flex items-center gap-1 transition-colors px-2 py-1 rounded hover:bg-rose-500/10">
+              <i class="fa-solid fa-trash-can"></i> Eliminar
+            </button>
+          ` : ''}
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+          <!-- Nombre / Modelo / Descripción -->
+          <div class="md:col-span-7">
+            <label class="block text-[11px] font-semibold uppercase tracking-wider text-slate-300 mb-1">
+              Nombre del Modelo / Descripción *
+            </label>
+            <input type="text" name="Producto_${index}_Nombre" required
+                   placeholder="Ej. Camiseta Camiseta Retro 2004, Sudadera Negra" 
+                   class="prod-name input-field w-full px-3 py-2.5 rounded-lg text-sm">
+          </div>
+
+          <!-- Talla -->
+          <div class="md:col-span-3">
+            <label class="block text-[11px] font-semibold uppercase tracking-wider text-slate-300 mb-1">
+              Talla *
+            </label>
+            <select name="Producto_${index}_Talla" required class="prod-size input-field w-full px-3 py-2.5 rounded-lg text-sm bg-slate-900">
+              <option value="S">S</option>
+              <option value="M" selected>M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+              <option value="XXL">XXL</option>
+              <option value="XS">XS</option>
+              <option value="Personalizada">Especial/Custom</option>
+            </select>
+          </div>
+
+          <!-- Cantidad -->
+          <div class="md:col-span-2">
+            <label class="block text-[11px] font-semibold uppercase tracking-wider text-slate-300 mb-1">
+              Cantidad *
+            </label>
+            <input type="number" min="1" max="99" value="1" name="Producto_${index}_Cantidad" required 
+                   class="prod-qty input-field w-full px-3 py-2.5 rounded-lg text-sm text-center">
+          </div>
+
+          <!-- Enlace Yupoo / Foto -->
+          <div class="md:col-span-12">
+            <label class="block text-[11px] font-semibold uppercase tracking-wider text-slate-300 mb-1">
+              Enlace de Yupoo / Foto de Referencia (Opcional)
+            </label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-500 text-xs">
+                <i class="fa-solid fa-link"></i>
+              </span>
+              <input type="url" name="Producto_${index}_Link" 
+                     placeholder="https://x.yupoo.store/albums/..." 
+                     class="prod-link input-field w-full pl-9 pr-3 py-2 rounded-lg text-xs">
+            </div>
+          </div>
+
+          <!-- Personalización de Nombre / Número -->
+          <div class="md:col-span-12">
+            <label class="block text-[11px] font-semibold uppercase tracking-wider text-slate-300 mb-1">
+              Personalización (Nombre/Número en dorsal, Parches, etc.)
+            </label>
+            <input type="text" name="Producto_${index}_Personalizacion" 
+                   placeholder="Ej. Dorsal: MANUEL #10 + Parche Champions (Dejar en blanco si sin serigrafía)" 
+                   class="prod-notes input-field w-full px-3 py-2 rounded-lg text-xs">
+          </div>
+        </div>
+      `;
+
+      return card;
+    }
+
+    // Function to add a product row
+    function addProduct() {
+      productCount++;
+      const container = document.getElementById('productsContainer');
+      const row = createProductRow(productCount);
+      container.appendChild(row);
+
+      // Attach deletion listener
+      const removeBtn = row.querySelector('.btn-remove-product');
+      if (removeBtn) {
+        removeBtn.addEventListener('click', () => {
+          row.remove();
+          updateSummary();
+        });
+      }
+
+      // Attach input event listeners for live summary updates
+      row.querySelectorAll('input, select').forEach(input => {
+        input.addEventListener('input', updateSummary);
+      });
+
+      updateSummary();
+    }
+
+    // Function to update live order summary
+    function updateSummary() {
+      const rows = document.querySelectorAll('.product-row');
+      const summaryList = document.getElementById('summaryItemsList');
+      const summaryBadge = document.getElementById('summaryBadge');
+      
+      const customerNameInput = document.getElementById('fullName').value.trim();
+      const customerCityInput = document.getElementById('city').value.trim();
+
+      document.getElementById('summaryCustomerName').innerHTML = `<i class="fa-regular fa-user mr-1 text-amber-400"></i> ${customerNameInput || 'Sin especificar'}`;
+      document.getElementById('summaryCustomerCity').innerHTML = `<i class="fa-solid fa-location-dot mr-1 text-amber-400"></i> ${customerCityInput || 'Sin especificar'}`;
+
+      summaryBadge.textContent = `${rows.length} ${rows.length === 1 ? 'Producto' : 'Productos'}`;
+      summaryList.innerHTML = '';
+
+      if (rows.length === 0) {
+        summaryList.innerHTML = '<p class="text-xs text-slate-500 italic text-center py-4">No hay productos agregados.</p>';
+        return;
+      }
+
+      rows.forEach((row, i) => {
+        const name = row.querySelector('.prod-name').value.trim() || `Producto #${i + 1}`;
+        const size = row.querySelector('.prod-size').value;
+        const qty = row.querySelector('.prod-qty').value || 1;
+        const notes = row.querySelector('.prod-notes').value.trim();
+
+        const itemEl = document.createElement('div');
+        itemEl.className = 'bg-slate-900/90 border border-slate-800 rounded-lg p-3 text-xs space-y-1';
+        itemEl.innerHTML = `
+          <div class="flex justify-between items-start font-bold text-slate-200 gap-2">
+            <span class="truncate">${i + 1}. ${name}</span>
+            <span class="text-amber-400 bg-amber-500/10 px-1.5 py-0.5 rounded text-[10px] shrink-0 font-mono">x${qty}</span>
+          </div>
+          <div class="flex justify-between text-slate-400 text-[11px]">
+            <span>Talla: <strong class="text-slate-200">${size}</strong></span>
+          </div>
+          ${notes ? `<p class="text-[10px] text-amber-300/80 italic truncate"><i class="fa-solid fa-pen-nib text-[9px] mr-1"></i>${notes}</p>` : ''}
+        `;
+        summaryList.appendChild(itemEl);
+      });
+    }
+
+    // Initialize with 1 Product
+    document.addEventListener('DOMContentLoaded', () => {
+      addProduct();
+
+      // Listen for Customer info changes
+      ['fullName', 'city'].forEach(id => {
+        document.getElementById(id).addEventListener('input', updateSummary);
+      });
+
+      // Add product button listener
+      document.getElementById('btnAddProduct').addEventListener('click', () => {
+        addProduct();
+      });
+
+      // Send to WhatsApp Listener
+      document.getElementById('btnSubmitWhatsApp').addEventListener('click', sendViaWhatsApp);
+    });
+
+    // Helper: Build WhatsApp Message Text
+    function sendViaWhatsApp() {
+      const form = document.getElementById('orderForm');
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const name = document.getElementById('fullName').value;
+      const phone = document.getElementById('phone').value;
+      const email = document.getElementById('email').value;
+      const address = document.getElementById('address').value;
+      const city = document.getElementById('city').value;
+      const postalCode = document.getElementById('postalCode').value;
+
+      let msg = `*NUEVO PEDIDO - MMM STYLE*\n`;
+      msg += `----------------------------------\n`;
+      msg += `*DATOS DEL CLIENTE:*\n`;
+      msg += `👤 *Nombre:* ${name}\n`;
+      msg += `📞 *Teléfono:* ${phone}\n`;
+      msg += `✉️ *Email:* ${email}\n`;
+      msg += `📍 *Dirección:* ${address}, ${city} (${postalCode})\n\n`;
+
+      msg += `*PRENDAS / PRODUCTOS:*\n`;
+
+      const rows = document.querySelectorAll('.product-row');
+      rows.forEach((row, i) => {
+        const prodName = row.querySelector('.prod-name').value;
+        const size = row.querySelector('.prod-size').value;
+        const qty = row.querySelector('.prod-qty').value;
+        const link = row.querySelector('.prod-link').value;
+        const notes = row.querySelector('.prod-notes').value;
+
+        msg += `\n*Item #${i + 1}:* ${prodName}\n`;
+        msg += `   • *Talla:* ${size} | *Cantidad:* ${qty}\n`;
+        if (notes) msg += `   • *Personalización:* ${notes}\n`;
+        if (link) msg += `   • *Link:* ${link}\n`;
+      });
+
+      msg += `\n----------------------------------\n`;
+      msg += `Catálogo consultado: https://www.yupoo.store/`;
+
+      const encodedMsg = encodeURIComponent(msg);
+      // Opens WhatsApp standard API
+      window.open(`https://api.whatsapp.com/send?text=${encodedMsg}`, '_blank');
+    }
+  </script>
+</body>
+</html>
